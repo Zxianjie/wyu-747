@@ -1,0 +1,176 @@
+类和对象的练习题，有代码示例
+1 在ibm.com.testdemo中创建address包并创建Address类，属性有city和street
+2 在ibm.com.testdemo中创建employee包并创建Employee类，属性有id，age, name, gender,Address(前面创建的类)，show方法打印出所有的属性来。
+3 创建Employee对象，并为其设置属性 id=112233,age=24,name=张三，gender=男，创建Address对象，city=江门，street=迎宾大道99号。将张三的信息打印出来。
+
+变量类型的练习题，有代码示例
+1 创建一个testVar类，类中设置八种基本类型的属性，以及一个数组引用的属性，然后将其打印出来，验证一下他们的默认值是多少。
+ -----都是0，0.0   char为null  boolean为false
+2 将short类型转成byte类型，
+3 将int类型转成long类型。
+import java.util.*;
+public class test1 {
+	static byte a;
+	static short b;
+	static long c;
+	static int d;
+	static float e;
+	static double f;
+	static char g;
+	static boolean h;
+	 static String string=new String();
+	
+	public static void main(String[] args) {
+		int k;
+		a=(byte)b;
+		c=(long)d;
+		
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(e);
+		System.out.println(d);
+		System.out.println(f);
+		System.out.println(g);
+		System.out.println(h);
+		System.out.println(string);
+		
+		
+	}
+}
+
+修饰符的练习题
+1 验证private只能在类内部访问，其他类无法访问被private修饰的变量
+2 验证private 不能修饰类
+3 验证protected 只能作用于当前包，其他包的类无法访问。
+4 验证protected 不能修饰类
+
+
+基本语法的练习题
+1 Java基本语法语句-下面程序会输出什么？
+			public static void main(String args[]) {
+				int i=0,x=3;
+				while(x<9){
+			                    x+=2; 
+				    x++;
+				    ++i;
+				}
+			System.out.println("i="+i);
+			}
+         输出  i=2
+2 Java基本语法语句-switch 语句能否作用在 byte 上，能否作用在 long 上，能否作用在 String 上?用代码敲一下
+    cannot switch on a values of type long;
+不能作用在long上
+
+
+工具类的练习题
+1 将hello 和 world 拼接在一起，变成 hello world 一句话，可以有几种写法。（提示: 加号,concat,StringBuilder）
+String str1="hello ";
+		String str2="world";
+		String str3=str1+str2;
+		System.out.println(str3);
+		str3=str1.concat(" world");
+		System.out.println(str3);
+		StringBuffer stringBuffer=new StringBuffer();
+		stringBuffer.append("hello ").append("world");
+		System.out.println(stringBuffer.toString());
+2 StringBuilder类是StringBuffer类的替代类，两者的共同点是都是可变长度字符串，其中线程安全的类是___StringBuffer___。
+3 创建一个int数组，并用for和foreach两种方式遍历打印出来
+int[] a=new int[]{1,3,4,5};
+		for(int i=0;i<4;i++)
+		{
+			System.out.println(a[i]);
+		}
+		for(int b:a)
+		{
+			System.out.println(b);
+		}
+4 获取当前的日期，并对当前的日期格式化为 yyyy-MM-dd hh:mm:ss
+Date date=new Date();
+SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+System.out.println(format.format(date));
+异常的练习题，问题2有代码示例
+1 自己创建一个异常并抛出来
+ import java.util.*;
+ public class throwsexceptiontest{
+	 public static void main(String[] args) {
+		 int a=11;
+		 try {
+			 int b=a/0;
+		 }
+		 catch(Exception e) {
+			 System.out.println("error");
+			 throw e;
+		 }
+		
+			 
+		 
+		 
+	 }
+ }
+2 finally和return执行顺序？
+return在try（）或catch（）中时会先被执行在finally后返回；
+3 final, finally的区别
+两者没有直接关系，final用于数据类型前表示修饰得变量是一个常量定义后的值不可更改；用于声明类函数表是该方法是最终方法不可覆盖；用于类名前表示该类是最终类不可被继承
+
+
+
+jvm的练习题
+1 jdk和jre的区别是什么？
+面向人群bai不同：
+
+JDK是面向du开发人员使用的zhiSDK。
+
+JRE是Java Runtime Enviroment是指Java的运行环境，是面向Java程序的使用者。
+
+重要程度不dao同：
+
+JRE的地位就象一台PC机一样，编写的Java程序必须要JRE才能运行。只要你的电脑安装了JRE，就可以正确运行Jav a应用程序。
+
+2 jvm由哪几部分组成？
+JVM 由类加载器子系统、运行时数据区、执行引擎以及本地方法接口组成
+
+晚上的作业
+1 什么是类，对象，他们的关系是怎么样的。
+类是由许多方法和变量构成的一个模板，对象是类方法的实现
+2 构造方法有几种？请简单说一下
+类中只要构造方法的参数不同可以由多个
+3 数据类型有几种？以及每种的默认值是多少?请简单说一下
+8种  byte short int long float doublt char boolen 默认值分别是0 0 0 0 0.0 0.0 null false
+4 强制类型转换需要注意什么？
+高字节向低字节需要强制转换，如果高字节的转换范围超过低字节允许的范围会出现转换的数值不是自己想要的
+5 变量有几种？他们的作用范围是什么？
+成员变量 ：声明为类的属性的变量 静态变量：声明为静态属bai性的变量 volatile变量：和多线程相关，用于简化同步的变量 transient变量：用于使该变量不会被持久化 final变量：基本上就是常量 局部变量：方法里面声明的变量
+6 访问修饰符有几种？他们的作用范围是什么？
+public :包内外private:类内 protect ：包内  default  
+7 static 修饰的类，变量，方法和普通对象的类，变量，方法有什么区别
+修饰类时该类作为最终类不可继承，修饰变量时定义的值不可改变沦为常量，修饰方法时作为最终方法不可修改，
+8 a++ 和 ++a的区别是什么
+a++先用后加  ++a先加后用
+9 运算符优先级最高的是哪个？
+
+10 循环语句有几种？请简单列一下
+do  while()  ;while() ;for()
+11 if条件语句可以有多个else吗？
+不可以，但可以 if（） elseif()   elseif() else()
+12 continue 和 break 在循环语句中的区别？
+continue结束单次循环，break结束整个循环
+13 StringBuilder 与StringBuffer的区别？
+stingbuffer 是线程安全类，stingbuilder不是
+14 final, finally的区别？
+上面说了
+15 jvm由哪几部分组成
+一套字节码指令集、一组寄存器、一个栈、一个垃圾回收堆、一个存储方法域
+16 用java语言描述你周围常见的事物？例如一只猫，一条狗，一座大楼，空调，手机，等等。
+class cat{
+private String ncat;
+private interge nage;
+private String ncolor;
+private String gender;
+public cat(String a,interge b,String c,String d)
+{
+	ncat=a;nage=b;ncolor=c;gender=d;
+}
+
+
+17 自己手动画一下jvm的内存分部图。
